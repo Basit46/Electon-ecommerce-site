@@ -1,17 +1,56 @@
-import React from "react";
+"use client";
+
 import Image from "next/image";
 import camera from "../public/canon.png";
 import camera_sm from "../public/camera-sm.png";
 import ProductsCollection from "./ProductsCollection";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { useContext, useEffect, useState } from "react";
+import { FilterContext } from "@/context/FilterContext";
+// import { useFilterContext } from "@/context/FilterContext";
 
 const Hero = () => {
+  const [nums, setNums] = useState({
+    phonesNum: 0,
+    laptopsNum: 0,
+    camerasNum: 0,
+    headphonesNum: 0,
+  });
+  useEffect(() => {
+    const getProducts = async () => {
+      const res = await fetch("http://localhost:3000/api/products", {
+        cache: "no-store",
+      });
+      const returnedProducts = await res.json();
+
+      await setNums({
+        phonesNum: returnedProducts.filter(
+          (product) => product.category === "Phones"
+        ).length,
+        laptopsNum: returnedProducts.filter(
+          (product) => product.category === "Laptops"
+        ).length,
+        camerasNum: returnedProducts.filter(
+          (product) => product.category === "Cameras"
+        ).length,
+        headphonesNum: returnedProducts.filter(
+          (product) => product.category === "Headphones"
+        ).length,
+      });
+    };
+
+    getProducts();
+  }, []);
+
+  // const { first } = useFilterContext();
+  const { first } = useContext(FilterContext);
+
   return (
     <div>
       <div className="w-full flex justify-around">
         <div>
           <h1 className="font-bold text-[43px] leading-[64px] text-[#1B5A7D]">
-            Canon
+            Canon {first}
             <br />
             camera
           </h1>
@@ -47,11 +86,26 @@ const Hero = () => {
             <BsArrowLeft className="text-[#292D32]" />
           </div>
           <div className="w-fit flex gap-[50px]">
-            <ProductsCollection img={camera_sm} title="DSLR camera" items="6" />
-            <ProductsCollection img={camera_sm} title="DSLR camera" items="6" />
-            <ProductsCollection img={camera_sm} title="DSLR camera" items="6" />
-            <ProductsCollection img={camera_sm} title="DSLR camera" items="6" />
-            <ProductsCollection img={camera_sm} title="DSLR camera" items="6" />
+            <ProductsCollection
+              img={camera_sm}
+              title="Phones"
+              items={nums.phonesNum}
+            />
+            <ProductsCollection
+              img={camera_sm}
+              title="Laptops"
+              items={nums.laptopsNum}
+            />
+            <ProductsCollection
+              img={camera_sm}
+              title="Cameras"
+              items={nums.camerasNum}
+            />
+            <ProductsCollection
+              img={camera_sm}
+              title="Headphones"
+              items={nums.headphonesNum}
+            />
           </div>
           <div className="w-[37px] h-[37px] absolute right-[95px] top-[50%] translate-y-[-50%] grid place-items-center rounded-full bg-[#EAEAEA]">
             <BsArrowRight className="text-[#292D32]" />

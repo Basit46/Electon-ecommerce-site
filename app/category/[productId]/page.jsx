@@ -5,7 +5,7 @@ import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineCheck } from "react-icons/md";
 import Product from "@/components/Product";
 
-const page = () => {
+const page = async () => {
   return (
     <div className="w-full px-[60px] pt-[22px]">
       <div className="flex gap-[49px]">

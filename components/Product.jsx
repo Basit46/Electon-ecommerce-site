@@ -4,7 +4,7 @@ import pad from "@/public/pad.png";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import add_to_cart from "@/public/add_to_cart_logo.png";
 
-const Product = () => {
+const Product = ({ product }) => {
   return (
     <div className="relative w-[308.83px] h-[313.75px] p-[10px] rounded-[19.6707px] border-[0.983537px] border-solid border-[#B6B6B6] flex flex-col">
       <div>
@@ -14,10 +14,10 @@ const Product = () => {
         <AiOutlineHeart />
       </div>
       <p className="font-medium text-[17.0939px] leading-[24px] text-[#003F62]">
-        Game Pad
+        {product?.title}
       </p>
       <p className="font-semibold text-[17.0939px] leading-[24px] text-[#4A4A4A] my-[4px]">
-        $11.70
+        ${product?.price}
       </p>
 
       <div className="flex gap-[10.82px]">

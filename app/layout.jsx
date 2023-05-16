@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import SecondNav from "@/components/SecondNav";
+import FilterContextProvider from "@/context/FilterContext";
 import "./globals.css";
 
 export const metadata = {
@@ -13,11 +14,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="font-Poppins">
-        <Header />
-        <Navbar />
-        <SecondNav />
-        {children}
-        <Footer />
+        <FilterContextProvider>
+          <Header />
+          <Navbar />
+          <SecondNav />
+          {children}
+          <Footer />
+        </FilterContextProvider>
       </body>
     </html>
   );

@@ -2,7 +2,20 @@ import React from "react";
 import Product from "./Product";
 import Promotion from "./Promotion";
 
-const Products = () => {
+const getProducts = async () => {
+  const res = await fetch("http://localhost:3000/api/products", {
+    cache: "no-store",
+  });
+  const returnedProducts = await res.json();
+  const products = returnedProducts.filter(
+    (product) => product.category === "Phones"
+  );
+
+  return products;
+};
+
+const Products = async () => {
+  const products = await getProducts();
   return (
     <div className="products px-[61px] mt-[82px]">
       <div className="heading flex justify-between items-center">
@@ -10,22 +23,17 @@ const Products = () => {
           Popular products
         </h1>
         <ul className="flex gap-[10px]">
-          <li>Cameras</li>
+          <li>Phones</li>
           <li>Laptops</li>
-          <li>Tablets</li>
-          <li>Mouse</li>
+          <li>Cameras</li>
+          <li>Headphones</li>
         </ul>
       </div>
 
       <div className="products-grid mt-[53px]">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {products.map((product, index) => (
+          <Product key={index} product={product} />
+        ))}
       </div>
 
       <Promotion />

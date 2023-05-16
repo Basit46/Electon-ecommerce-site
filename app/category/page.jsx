@@ -1,9 +1,19 @@
 import CategoryList from "@/components/CategoryList";
 import Product from "@/components/Product";
 import Promotion from "@/components/Promotion";
-import React from "react";
 
-const category = () => {
+const getProducts = async () => {
+  const res = await fetch("http://localhost:3000/api/products", {
+    cache: "no-store",
+  });
+  const products = await res.json();
+
+  return products;
+};
+
+const category = async () => {
+  const products = await getProducts();
+
   return (
     <div className="w-full px-[40px]">
       <div className="mt-[103px] w-full flex justify-between gap-[40px]">
@@ -18,12 +28,12 @@ const category = () => {
               </p>
             </div>
 
-            <CategoryList category="All Category" itemsNo={10} />
-            <CategoryList category="Tablet" itemsNo={5} />
-            <CategoryList category="Laptops" itemsNo={5} />
+            <CategoryList category="All Category" itemsNo={16} />
+            <CategoryList category="Phones" itemsNo={4} />
+            <CategoryList category="Laptops" itemsNo={3} />
+            <CategoryList category="Cameras" itemsNo={4} />
             <CategoryList category="Headphones" itemsNo={5} />
-            <CategoryList category="Console" itemsNo={5} />
-            <CategoryList category="Other" itemsNo={5} />
+            <CategoryList category="Other" itemsNo={0} />
           </div>
 
           <div className="w-full border border-solid border-[#BDBDBD] mt-[23px] mb-[13px]" />
@@ -41,24 +51,15 @@ const category = () => {
               </p>
             </div>
 
-            <CategoryList category="In stock" itemsNo={5} />
+            <CategoryList category="In stock" itemsNo={16} />
             <CategoryList category="Out of stock" itemsNo={0} />
           </div>
         </div>
 
         <div className="min-h-[50vh] flex flex-1 flex-wrap gap-[20px]">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          {products.map((product, index) => (
+            <Product key={index} product={product} />
+          ))}
         </div>
       </div>
       <Promotion />
