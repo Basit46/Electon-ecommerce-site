@@ -5,7 +5,23 @@ import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineCheck } from "react-icons/md";
 import Product from "@/components/Product";
 
-const page = async () => {
+const getProduct = async (params) => {
+  const res = await fetch("http://localhost:3000/api/products", {
+    cache: "no-store",
+  });
+  const returnedData = await res.json();
+
+  const product = returnedData.find(
+    (product) => product.id.toString() === params.productId
+  );
+
+  const relatedProducts = returnedData
+    .filter((relatedproduct) => relatedproduct.category === product.category)
+    .filter((item) => item.id !== product.id);
+  return { relatedProducts, product };
+};
+const page = async ({ params }) => {
+  const { relatedProducts, product } = await getProduct(params);
   return (
     <div className="w-full px-[60px] pt-[22px]">
       <div className="flex gap-[49px]">
@@ -29,10 +45,10 @@ const page = async () => {
 
         <div className="flex-1">
           <h1 className="font-medium text-[29.6765px] leading-[45px] text-[#003F62]">
-            Game Pad
+            {product?.title}
           </h1>
           <p className="mt-[11px] mb-[23.71px] font-semibold text-[29.6765px] leading-[45px] text-[#4A4A4A]">
-            $11.70
+            ${product?.price}
           </p>
           <div className="flex items-center gap-[8px]">
             <div className="flex gap-[5px]">
@@ -55,7 +71,7 @@ const page = async () => {
             </div>
           </div>
           <p className="text-[15.9276px] leading-6 text-[#5D5D5D]">
-            Hurry up! only 34 product left in stock!
+            Hurry up! only few products left in stock!
           </p>
           <div className="mt-[22px] mb-[40px] w-full h-0 border border-solid border-[#BDBDBD]" />
           <div className="flex items-center gap-[19.08px]">
@@ -120,9 +136,9 @@ const page = async () => {
           Related products
         </h1>
         <div className="mt-[53px] w-full flex flex-wrap gap-[30px]">
-          <Product />
-          <Product />
-          <Product />
+          {relatedProducts.map((product, index) => (
+            <Product key={index} product={product} />
+          ))}
         </div>
       </div>
     </div>

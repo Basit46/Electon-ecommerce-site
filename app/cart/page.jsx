@@ -1,7 +1,13 @@
+"use client";
+
 import CartItem from "@/components/CartItem";
+import { useCartContext } from "@/context/cart.context";
+import Link from "next/link";
 import React from "react";
 
 const page = () => {
+  const { cartItems, subTotal, clearCart } = useCartContext();
+
   return (
     <div className="px-[60px] pt-[33px] w-full flex gap-[21px]">
       <div className="flex-1">
@@ -16,17 +22,23 @@ const page = () => {
             </tr>
           </thead>
           <tbody>
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {cartItems &&
+              cartItems.map((item, index) => (
+                <CartItem key={index} item={item} />
+              ))}
           </tbody>
         </table>
 
         <div className="mt-[31px] flex items-center gap-[30px]">
-          <button className="mt-[41px] w-[295px] bg-gold  rounded-[32.4242px] font-semibold text-[22.697px] leading-[34px] text-white py-[19.5px]">
-            Continue shopping
-          </button>
-          <button className="mt-[41px] w-[223px] border border-[#C33131] hover:bg-[#C33131] hover:text-white rounded-[32.4242px] font-semibold text-[22.697px] leading-[34px] text-[#C33131] py-[19.5px]">
+          <Link href="/category">
+            <button className="mt-[41px] w-[295px] bg-gold  rounded-[32.4242px] font-semibold text-[22.697px] leading-[34px] text-white py-[19.5px]">
+              Continue shopping
+            </button>
+          </Link>
+          <button
+            onClick={clearCart}
+            className="mt-[41px] w-[223px] border border-[#C33131] hover:bg-[#C33131] hover:text-white rounded-[32.4242px] font-semibold text-[22.697px] leading-[34px] text-[#C33131] py-[19.5px]"
+          >
             Clear cart
           </button>
         </div>
@@ -42,7 +54,7 @@ const page = () => {
               Subtotal
             </h1>
             <p className="font-medium text-[22.68px] leading-[34px] text-[#232323]">
-              $23.20
+              ${subTotal}
             </p>
           </div>
           <div className="w-full h-[0px] border border-solid border-[#AFAFAF] my-[22px]" />

@@ -1,4 +1,9 @@
+"use client";
+
+import { useFilterContext } from "@/context/FilterContext";
+
 const CategoryList = ({ category, itemsNo }) => {
+  const { handleChange } = useFilterContext();
   return (
     <div className="w-full flex items-center mt-[12px] ">
       {/* <div className="mr-[10px] w-[30px] h-[30px] rounded-lg bg-[#B3D4E5] hover:bg-[#3F3F3F] cursor-pointer grid place-items-center">
@@ -6,7 +11,12 @@ const CategoryList = ({ category, itemsNo }) => {
       </div>
       <h1 className="text-[16.09px] leading-6 text-[#222222]">{category}</h1> */}
       <div className="flex items-center">
-        <input type="checkbox" id="myCheckbox" className="mr-[10px]" />
+        <input
+          type="checkbox"
+          onChange={(e) => handleChange(e, category)}
+          id="myCheckbox"
+          className="mr-[10px]"
+        />
         <label
           htmlFor="myCheckbox"
           className="text-[16.09px] leading-6 text-[#222222]"

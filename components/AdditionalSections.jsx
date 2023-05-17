@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import React from "react";
 import box_tick from "@/public/box-tick.png";
@@ -7,10 +5,12 @@ import crown from "@/public/crown.png";
 import warranty from "@/public/warranty.png";
 import user from "@/public/user.png";
 import brand from "@/public/brand.png";
+import Promotion from "./Promotion";
 
 const AdditionalSections = () => {
   return (
     <div className="w-full mt-[75px] px-[61px]">
+      <Promotion />
       {/* Features */}
       <div className="w-full rounded-[20px] bg-lightblue flex items-center justify-center gap-[109.77px] py-[44.5px]">
         <div className="flex gap-[36.79px] items-center">
