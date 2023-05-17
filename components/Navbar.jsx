@@ -11,23 +11,18 @@ import { useCartContext } from "@/context/cart.context";
 const Navbar = () => {
   const { cartItems } = useCartContext();
   return (
-    <div className="w-full bg-blue flex items-center justify-between py-[22px] px-[67.79px]">
+    <nav className="w-full bg-blue flex items-center justify-between py-[22px] px-[67.79px]">
       <div className="">
         <Link className="cursor-pointer" href="/">
           <Image src={logo} alt="logo" />
         </Link>
       </div>
 
-      <div className="h-[56px] w-[438px] flex items-center bg-white rounded-[20px]">
-        <input
-          className="h-full rounded-[20px] flex-1 px-[25px] outline-none"
-          type="text"
-          placeholder="Search any thing"
-        />
-        <button className="bg-gold h-full px-[41px] rounded-[20px] mt-[0px]">
-          Search
-        </button>
-      </div>
+      <ul className="ml-[98px] flex items-center gap-[29px]">
+        <li>Home</li>
+        <li>Catalog</li>
+        <li>Blog</li>
+      </ul>
 
       <div className="flex items-center gap-[31px] text-white">
         <div className="flex items-center gap-[15.41px]">
@@ -59,7 +54,7 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-    </div>
+    </nav>
   );
 };
 

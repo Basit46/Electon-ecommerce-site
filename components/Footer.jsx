@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <footer className="mt-[41px] flex justify-between pb-[42px]">
+      <footer className="mt-[41px] flex gap-[200px] pb-[42px]">
         <div>
           <Image src={logo} alt="Logo_Img" />
           <p className="mt-[41px] text-[16.38px] leading-[25px] text-[#1B5A7D]">
@@ -47,32 +47,25 @@ const Footer = () => {
           </div>
         </div>
 
-        <ul>
-          <p>Find product</p>
-          <li>Brownze arnold</li>
-          <li>Chronograph blue</li>
-          <li>Smart phones</li>
-          <li>Automatic watch</li>
-          <li>Hair straighteners</li>
-        </ul>
+        <div className="flex gap-[50px]">
+          <ul>
+            <p>Categories</p>
+            <li>Phones</li>
+            <li>Laptops</li>
+            <li>Cameras</li>
+            <li>Headphones</li>
+            <li>Others</li>
+          </ul>
 
-        <ul>
-          <p>Get help</p>
-          <li>About Us</li>
-          <li>Contact us</li>
-          <li>Return policy</li>
-          <li>Privacy policy</li>
-          <li>Payment policy</li>
-        </ul>
-
-        <ul>
-          <p>About us</p>
-          <li>News</li>
-          <li>Service</li>
-          <li>Our policy</li>
-          <li>Customer care</li>
-          <li>FAQs</li>
-        </ul>
+          <ul>
+            <p>About us</p>
+            <li>News</li>
+            <li>Service</li>
+            <li>Our policy</li>
+            <li>Customer care</li>
+            <li>FAQs</li>
+          </ul>
+        </div>
       </footer>
     </div>
   );
