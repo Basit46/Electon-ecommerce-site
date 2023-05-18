@@ -19,8 +19,12 @@ const Navbar = () => {
       </div>
 
       <ul className="ml-[98px] flex items-center gap-[29px]">
-        <li>Home</li>
-        <li>Catalog</li>
+        <Link href="/">
+          <li>Home</li>
+        </Link>
+        <Link href="/category">
+          <li>Category</li>
+        </Link>
         <li>Blog</li>
       </ul>
 
