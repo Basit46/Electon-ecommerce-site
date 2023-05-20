@@ -10,7 +10,7 @@ const category = () => {
 
   return (
     <div className="w-full px-[40px]">
-      <div className="mt-[103px] w-full flex justify-between gap-[40px]">
+      <div className="mt-[50px] w-full flex justify-between gap-[40px]">
         <div className="min-h-[50vh] w-[18%]">
           <div>
             <div className="flex justify-between mb-[1px]">

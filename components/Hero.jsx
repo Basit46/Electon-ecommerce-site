@@ -6,10 +6,11 @@ import camera_sm from "../public/camera-sm.png";
 import ProductsCollection from "./ProductsCollection";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useEffect, useRef, useState } from "react";
-// import { useFilterContext } from "@/context/FilterContext";
+import Link from "next/link";
 
 const Hero = () => {
   const scrollContRef = useRef();
+  const headerRef = useRef();
 
   const handleScrollLeft = () => {
     scrollContRef.current.scrollLeft -= 200;
@@ -20,9 +21,9 @@ const Hero = () => {
   };
 
   const heroProducts = [
-    { id: 1, title: "iPhone 12 Pro", img: camera_sm },
-    { id: 2, title: "Apple MacBook Pro", img: camera_sm },
-    { id: 3, title: "Canon EOS R6", img: camera_sm },
+    { id: 2, title: "iPhone 12 Pro", img: camera_sm },
+    { id: 5, title: "Apple MacBook Pro", img: camera_sm },
+    { id: 10, title: "Canon EOS R6", img: camera_sm },
   ];
   const [heroProduct, setHeroProduct] = useState(heroProducts[0]);
   const [current, setCurrent] = useState(1);
@@ -37,12 +38,13 @@ const Hero = () => {
         setHeroProduct(heroProducts[current]);
         setCurrent((prev) => prev + 1);
       }
-    }, 5000);
+    }, 4000);
 
     return () => {
       clearInterval(intervalId); //
     };
   }, [current]);
+
   const handleFirst = () => {
     setCurrent(0);
     setHeroProduct(heroProducts[0]);
@@ -88,22 +90,29 @@ const Hero = () => {
     getProducts();
   }, []);
 
-  // const { first } = useFilterContext();
-
   return (
     <div>
       <div className="w-full mt-[50px] flex justify-around">
-        <div>
-          <h1 className="font-bold text-[43px] leading-[64px] text-[#1B5A7D]">
+        <div className="w-[40%]">
+          <h1
+            ref={headerRef}
+            className="font-bold text-[43px] leading-[64px] text-[#1B5A7D]"
+          >
             {heroProduct?.title}
           </h1>
           <div className="mt-[19px] mb-[49px] flex items-center gap-[21px]">
-            <button className="py-[18.5px] px-[32px] bg-gold rounded-[20px] font-semibold text-base leading-6 text-white">
+            <Link
+              href={`/category/${heroProduct?.id}`}
+              className="py-[18.5px] px-[32px] bg-gold rounded-[20px] font-semibold text-base leading-6 text-white"
+            >
               Shop now
-            </button>
-            <button className="py-[18.5px] px-[32px] rounded-[20px] border border-solid border-[#316887] font-semibold text-base leading-6 text-[#316887]">
+            </Link>
+            <Link
+              href="/category"
+              className="py-[18.5px] px-[32px] rounded-[20px] border border-solid border-[#316887] font-semibold text-base leading-6 text-[#316887]"
+            >
               View more
-            </button>
+            </Link>
           </div>
           <div className="flex gap-[8px] ml-[120px]">
             <div

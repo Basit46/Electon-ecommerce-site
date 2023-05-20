@@ -36,3 +36,15 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 } */
+
+.anime {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fade 2s linear forwards;
+}
+@keyframes fade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
