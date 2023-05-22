@@ -5,9 +5,10 @@
 @tailwind utilities;
 
 @layer components {
-  nav li {
-    @apply text-white cursor-pointer font-medium text-base leading-6;
+  nav .links > a {
+    @apply text-white cursor-pointer font-medium text-base leading-6 list-none;
   }
+
   .products .heading li {
     @apply border border-solid border-[#003F62] rounded-[20px] py-[10px] px-[30.5px] font-medium text-[16.38px] leading-[25px] text-[#1B5A7D];
   }

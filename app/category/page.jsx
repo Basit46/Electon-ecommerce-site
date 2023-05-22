@@ -4,6 +4,8 @@ import CategoryList from "@/components/CategoryList";
 import Product from "@/components/Product";
 import Promotion from "@/components/Promotion";
 import { useFilterContext } from "@/context/FilterContext";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const category = () => {
   const { productsClone } = useFilterContext();
@@ -34,9 +36,13 @@ const category = () => {
         </div>
 
         <div className="min-h-[50vh] flex flex-1 flex-wrap gap-[20px]">
-          {productsClone?.map((product, index) => (
-            <Product key={index} product={product} />
-          ))}
+          {productsClone ? (
+            productsClone.map((product, index) => (
+              <Product key={index} product={product} />
+            ))
+          ) : (
+            <Skeleton />
+          )}
         </div>
       </div>
       <Promotion />

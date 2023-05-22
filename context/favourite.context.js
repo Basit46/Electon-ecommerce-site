@@ -28,11 +28,9 @@ const FavouriteContextProvider = ({ children }) => {
   }, []);
 
   const addProductToFavourites = (product) => {
-    const id = product.id;
-    console.log(id, user.email);
     updateDoc(doc(db, "favourites", user.email), {
       likedProducts: arrayUnion({
-        id,
+        product,
       }),
     });
   };
