@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import InfoModal from "@/components/InfoModal";
 import Navbar from "@/components/Navbar";
 import AuthContextProvider from "@/context/auth.context";
 import CartContextProvider from "@/context/cart.context";
@@ -19,8 +20,8 @@ export default function RootLayout({ children }) {
           <FavouriteContextProvider>
             <CartContextProvider>
               <FilterContextProvider>
+                <InfoModal />
                 <Navbar />
-
                 {children}
                 <Footer />
               </FilterContextProvider>

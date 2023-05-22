@@ -10,9 +10,8 @@ import {
 import { auth } from "@/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/firebase";
-import { useFavouriteContext } from "./favourite.context";
 
-const authContext = createContext();
+const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -57,16 +56,16 @@ const AuthContextProvider = ({ children }) => {
     signOut(auth).then(() => setUser(null));
   };
   return (
-    <authContext.Provider
+    <AuthContext.Provider
       value={{ handleSignUp, handleSignIn, handleSignOut, user }}
     >
       {children}
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
 export default AuthContextProvider;
 
 export const useAuthContext = () => {
-  return useContext(authContext);
+  return useContext(AuthContext);
 };

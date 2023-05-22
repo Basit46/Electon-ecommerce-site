@@ -9,7 +9,7 @@ import { BsWhatsapp } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <div className="mt-[101px] w-full bg-lightblue px-[61px] pt-[42px]">
+    <div className="w-full bg-lightblue px-[61px] pt-[42px]">
       <div className="w-full bg-white flex justify-between items-center px-[45.5px] py-[38px] rounded-[20px] ">
         <h1 className="font-bold text-[29.38px] leading-[44px] text-[#1B5A7D]">
           Subscribe to Newsletter

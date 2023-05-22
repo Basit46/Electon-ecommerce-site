@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -37,6 +37,9 @@ const CartContextProvider = ({ children }) => {
   const [cartItems, dispatch] = useReducer(reducer, []);
   const [subTotal, setSubTotal] = useState();
 
+  const [info, setInfo] = useState("Product was added succesfully mate");
+  const [showInfo, setShowInfo] = useState(false);
+
   useEffect(() => {
     setSubTotal(
       cartItems
@@ -50,16 +53,31 @@ const CartContextProvider = ({ children }) => {
       type: "add",
       payload: { ...product, rate: 1, amount: product.price },
     });
+
+    setInfo("Item successfully added to cart");
+    setShowInfo(true);
   };
 
   const clearCart = () => {
     setSubTotal();
     dispatch({ type: "clear" });
+    setInfo("Cart cleared");
+    setShowInfo(true);
   };
 
   return (
     <CartContext.Provider
-      value={{ cartItems, dispatch, handleAddToCart, subTotal, clearCart }}
+      value={{
+        cartItems,
+        dispatch,
+        handleAddToCart,
+        subTotal,
+        clearCart,
+        info,
+        setInfo,
+        showInfo,
+        setShowInfo,
+      }}
     >
       {children}
     </CartContext.Provider>

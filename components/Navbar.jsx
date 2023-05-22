@@ -9,9 +9,11 @@ import Link from "next/link";
 import { useCartContext } from "@/context/cart.context";
 import { useAuthContext } from "@/context/auth.context";
 import { useFavouriteContext } from "@/context/favourite.context";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
-  const { cartItems } = useCartContext();
+  const router = useRouter();
+  const { cartItems, setInfo, setShowInfo } = useCartContext();
   const { user, handleSignOut } = useAuthContext();
   const { likedProducts } = useFavouriteContext();
 
@@ -26,6 +28,14 @@ const Navbar = () => {
     }
     return;
   }, [likedProducts]);
+
+  const signUserOut = async () => {
+    await handleSignOut();
+
+    router.push("/");
+    setInfo("Sign Out Successful");
+    setShowInfo(true);
+  };
 
   return (
     <nav className="w-full bg-blue flex items-center justify-between py-[22px] px-[60px]">
@@ -93,7 +103,7 @@ const Navbar = () => {
 
         {user && (
           <div
-            onClick={handleSignOut}
+            onClick={signUserOut}
             className="flex items-center gap-[3px] cursor-pointer hover:text-[orange]"
           >
             <CiLogout className="h-[24px] w-[24px]" />

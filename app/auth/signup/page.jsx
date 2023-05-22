@@ -3,21 +3,29 @@
 import { useAuthContext } from "@/context/auth.context";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useCartContext } from "@/context/cart.context";
+import { useRouter } from "next/navigation";
 
 const signUp = () => {
+  const router = useRouter();
+
   const { handleSignUp } = useAuthContext();
+  const { setInfo, setShowInfo } = useCartContext();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    handleSignUp(email, password);
+    await handleSignUp(email, password);
+    router.push("/category");
+    setInfo("Sign Up Successful");
+    setShowInfo(true);
   };
 
   return (
-    <div className="w-full flex justify-center pt-[40px]">
+    <div className="w-full flex justify-center py-[40px]">
       <form
         onSubmit={(e) => handleSubmit(e)}
         className="flex flex-col items-center border-[2px] border-black rounded-[10px] p-[20px]"
