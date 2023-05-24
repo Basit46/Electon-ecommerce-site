@@ -9,7 +9,7 @@ import Promotion from "./Promotion";
 
 const AdditionalSections = () => {
   return (
-    <div className="w-full mt-[75px] px-[61px]">
+    <div className="w-full mt-[75px] px-[61px] pb-[40px]">
       <Promotion />
       {/* Features */}
       <div className="w-full rounded-[20px] bg-lightblue flex items-center justify-center gap-[109.77px] py-[44.5px]">

@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import camera from "../public/canon.png";
+import phone from "@/public/products/phone2.png";
+import laptop from "@/public/products/laptop1.png";
+import headphone from "@/public/products/headphone1.png";
 import camera_sm from "../public/camera-sm.png";
 import ProductsCollection from "./ProductsCollection";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
@@ -13,17 +16,17 @@ const Hero = () => {
   const headerRef = useRef();
 
   const handleScrollLeft = () => {
-    scrollContRef.current.scrollLeft -= 200;
+    scrollContRef.current.scrollLeft -= 550;
   };
 
   const handleScrollRight = () => {
-    scrollContRef.current.scrollLeft += 200;
+    scrollContRef.current.scrollLeft += 550;
   };
 
   const heroProducts = [
-    { id: 2, title: "iPhone 12 Pro", img: camera_sm },
-    { id: 5, title: "Apple MacBook Pro", img: camera_sm },
-    { id: 10, title: "Canon EOS R6", img: camera_sm },
+    { id: 2, title: "iPhone 12 Pro", img: phone },
+    { id: 5, title: "Apple MacBook Pro", img: laptop },
+    { id: 10, title: "Canon EOS R6", img: camera },
   ];
   const [heroProduct, setHeroProduct] = useState(heroProducts[0]);
   const [current, setCurrent] = useState(1);
@@ -45,22 +48,9 @@ const Hero = () => {
     };
   }, [current]);
 
-  const handleFirst = () => {
-    setCurrent(0);
-    setHeroProduct(heroProducts[0]);
-  };
-  const handleSecond = () => {
-    setCurrent(1);
-    setHeroProduct(heroProducts[1]);
-  };
-  const handleThird = () => {
-    setCurrent(2);
-    setHeroProduct(heroProducts[2]);
-  };
-
   return (
     <div>
-      <div className="w-full mt-[50px] flex justify-around">
+      <div className="w-full mt-[50px] flex justify-center">
         <div className="w-[40%]">
           <h1
             ref={headerRef}
@@ -84,33 +74,30 @@ const Hero = () => {
           </div>
           <div className="flex gap-[8px] ml-[120px]">
             <div
-              onClick={handleFirst}
               className={`${
                 current === 1 && "bg-gold"
-              } w-4 h-4 rounded-full border border-solid border-[#ADADAD cursor-pointer`}
+              } w-4 h-4 rounded-full border border-solid border-[#ADADAD]`}
             ></div>
             <div
-              onClick={handleSecond}
               className={`${
                 current === 2 && "bg-gold"
-              } w-4 h-4 rounded-full border border-solid border-[#ADADAD cursor-pointer`}
+              } w-4 h-4 rounded-full border border-solid border-[#ADADAD]`}
             ></div>
             <div
-              onClick={handleThird}
               className={`${
                 current === 3 && "bg-gold"
-              } w-4 h-4 rounded-full border border-solid border-[#ADADAD cursor-pointer`}
+              } w-4 h-4 rounded-full border border-solid border-[#ADADAD]`}
             ></div>
           </div>
         </div>
 
-        <div className="relative">
-          <Image src={camera} alt="Hero_product_image" priority={true} />
-          <div className="absolute bottom-[52.39px] right-[-40px] w-[114.61px] h-[114.61px] rounded-full bg-gold flex justify-center items-center">
-            <p className="font-semibold text-[21.573px] leading-8 text-white">
-              Only $89
-            </p>
-          </div>
+        <div className="w-[40%] h-[350px]">
+          <Image
+            className="w-full h-full object-contain"
+            src={heroProduct?.img}
+            alt="Hero_product_image"
+            priority={true}
+          />
         </div>
       </div>
 
@@ -127,10 +114,10 @@ const Hero = () => {
             <BsArrowLeft className="text-[#292D32]" />
           </div>
           <div className="w-fit flex gap-[50px]">
-            <ProductsCollection img={camera_sm} title="Phones" items={4} />
-            <ProductsCollection img={camera_sm} title="Laptops" items={3} />
+            <ProductsCollection img={phone} title="Phones" items={4} />
+            <ProductsCollection img={laptop} title="Laptops" items={3} />
             <ProductsCollection img={camera_sm} title="Cameras" items={4} />
-            <ProductsCollection img={camera_sm} title="Headphones" items={5} />
+            <ProductsCollection img={headphone} title="Headphones" items={5} />
           </div>
           <div
             onClick={handleScrollRight}
