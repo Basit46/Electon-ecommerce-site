@@ -58,38 +58,6 @@ const Hero = () => {
     setHeroProduct(heroProducts[2]);
   };
 
-  const [nums, setNums] = useState({
-    phonesNum: 0,
-    laptopsNum: 0,
-    camerasNum: 0,
-    headphonesNum: 0,
-  });
-  useEffect(() => {
-    const getProducts = async () => {
-      const res = await fetch("http://localhost:3000/api/products", {
-        cache: "no-store",
-      });
-      const returnedProducts = await res.json();
-
-      await setNums({
-        phonesNum: returnedProducts.filter(
-          (product) => product.category === "Phones"
-        ).length,
-        laptopsNum: returnedProducts.filter(
-          (product) => product.category === "Laptops"
-        ).length,
-        camerasNum: returnedProducts.filter(
-          (product) => product.category === "Cameras"
-        ).length,
-        headphonesNum: returnedProducts.filter(
-          (product) => product.category === "Headphones"
-        ).length,
-      });
-    };
-
-    getProducts();
-  }, []);
-
   return (
     <div>
       <div className="w-full mt-[50px] flex justify-around">
@@ -159,26 +127,10 @@ const Hero = () => {
             <BsArrowLeft className="text-[#292D32]" />
           </div>
           <div className="w-fit flex gap-[50px]">
-            <ProductsCollection
-              img={camera_sm}
-              title="Phones"
-              items={nums.phonesNum}
-            />
-            <ProductsCollection
-              img={camera_sm}
-              title="Laptops"
-              items={nums.laptopsNum}
-            />
-            <ProductsCollection
-              img={camera_sm}
-              title="Cameras"
-              items={nums.camerasNum}
-            />
-            <ProductsCollection
-              img={camera_sm}
-              title="Headphones"
-              items={nums.headphonesNum}
-            />
+            <ProductsCollection img={camera_sm} title="Phones" items={4} />
+            <ProductsCollection img={camera_sm} title="Laptops" items={3} />
+            <ProductsCollection img={camera_sm} title="Cameras" items={4} />
+            <ProductsCollection img={camera_sm} title="Headphones" items={5} />
           </div>
           <div
             onClick={handleScrollRight}

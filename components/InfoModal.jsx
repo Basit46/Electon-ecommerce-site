@@ -21,7 +21,7 @@ const InfoModal = () => {
     <div
       className={`${
         showInfo ? "opacity-100" : "opacity-0"
-      } fixed right-[20px] bottom-[20px] z-[100] min-w-[200px] bg-[#d8f5d8] border-[green] border-2 rounded-[10px] p-[10px]`}
+      } fixed right-[20px] top-[100px] z-[100] min-w-[200px] bg-[green] text-white text-[1.3rem] font-medium rounded-[10px] p-[14px]`}
     >
       {info}
     </div>

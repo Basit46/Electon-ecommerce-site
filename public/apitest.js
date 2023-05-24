@@ -1,4 +1,19 @@
-import pad from "@/public/pad.png";
+import phone1 from "./products/phone1.png";
+import phone2 from "./products/phone2.png";
+import phone3 from "./products/phone3.png";
+import phone4 from "./products/phone4.png";
+import headphone1 from "./products/headphone1.png";
+import headphone2 from "./products/headphone2.png";
+import headphone3 from "./products/headphone3.png";
+import headphone4 from "./products/headphone4.png";
+import camera1 from "./products/camera1.png";
+import camera2 from "./products/camera2.png";
+import camera3 from "./products/camera3.png";
+import camera4 from "./products/camera4.png";
+import laptop1 from "./products/laptop1.png";
+import laptop2 from "./products/laptop2.png";
+import laptop3 from "./products/laptop3.png";
+import laptop4 from "./products/laptop4.png";
 
 export const productsList = [
   {
@@ -7,7 +22,7 @@ export const productsList = [
     price: 999.99,
     category: "Phones",
     desc: "The latest smartphone from Samsung, featuring a 6.2 inch screen, 128GB storage and 8GB RAM.",
-    image: pad,
+    image: phone1,
     rating: 4,
   },
   {
@@ -16,7 +31,7 @@ export const productsList = [
     price: 1199.99,
     category: "Phones",
     desc: "Apple's latest flagship phone with a 6.1 inch Super Retina XDR display, 128GB storage and 6GB RAM.",
-    image: pad,
+    image: phone2,
     rating: 5,
   },
   {
@@ -25,7 +40,7 @@ export const productsList = [
     price: 799.99,
     category: "Phones",
     desc: "A high-end Android phone with a 6.0 inch OLED display, 128GB storage and 8GB RAM.",
-    image: pad,
+    image: phone3,
     rating: 4,
   },
   {
@@ -34,7 +49,7 @@ export const productsList = [
     price: 899.99,
     category: "Phones",
     desc: "A powerful Android phone with a 6.7 inch AMOLED display, 256GB storage and 12GB RAM.",
-    image: pad,
+    image: phone4,
     rating: 4,
   },
   {
@@ -43,7 +58,7 @@ export const productsList = [
     price: 1999.99,
     category: "Laptops",
     desc: "A high-performance laptop from Apple, featuring a 13-inch Retina display, 512GB storage and 8GB RAM.",
-    image: pad,
+    image: laptop1,
     rating: 5,
   },
   {
@@ -52,7 +67,7 @@ export const productsList = [
     price: 1499.99,
     category: "Laptops",
     desc: "A premium laptop with a 13.3 inch Full HD display, 512GB storage and 16GB RAM.",
-    image: pad,
+    image: laptop2,
     rating: 4,
   },
   {
@@ -61,7 +76,7 @@ export const productsList = [
     price: 1299.99,
     category: "Laptops",
     desc: "A sleek and stylish laptop with a 13.3 inch 4K UHD display, 512GB storage and 16GB RAM.",
-    image: pad,
+    image: laptop3,
     rating: 3,
   },
   {
@@ -70,7 +85,7 @@ export const productsList = [
     price: 1999.99,
     category: "Cameras",
     desc: "A full-frame mirrorless camera with a 24.2MP sensor, 4K video recording, and 5-axis image stabilization.",
-    image: pad,
+    image: camera1,
     rating: 5,
   },
   {
@@ -79,7 +94,7 @@ export const productsList = [
     price: 2499.99,
     category: "Cameras",
     desc: "A professional-grade mirrorless camera with a 24.5MP sensor, 4K video recording, and dual memory card slots.",
-    image: pad,
+    image: camera2,
     rating: 4,
   },
   {
@@ -88,7 +103,7 @@ export const productsList = [
     price: 2799.99,
     category: "Cameras",
     desc: "A high-end mirrorless camera with a 20.1MP sensor, 4K video recording, and advanced autofocus system.",
-    image: pad,
+    image: camera3,
     rating: 5,
   },
   {
@@ -97,7 +112,7 @@ export const productsList = [
     price: 1499.99,
     category: "Cameras",
     desc: "A versatile mirrorless camera with a 26.1MP sensor, 4K video recording, and in-body image stabilization.",
-    image: pad,
+    image: camera4,
     rating: 4,
   },
   {
@@ -106,7 +121,7 @@ export const productsList = [
     price: 349.99,
     category: "Headphones",
     desc: "Premium noise-cancelling headphones with advanced features like adaptive sound control and speak-to-chat.",
-    image: pad,
+    image: headphone1,
     rating: 5,
   },
   {
@@ -115,7 +130,7 @@ export const productsList = [
     price: 299.99,
     category: "Headphones",
     desc: "Industry-leading noise-cancelling headphones with Alexa voice control and up to 20 hours of battery life.",
-    image: pad,
+    image: headphone2,
     rating: 4,
   },
   {
@@ -124,7 +139,7 @@ export const productsList = [
     price: 399.99,
     category: "Headphones",
     desc: "Premium wireless headphones with active noise cancellation and automatic on/off functionality.",
-    image: pad,
+    image: headphone3,
     rating: 2,
   },
   {
@@ -133,7 +148,7 @@ export const productsList = [
     price: 199.99,
     category: "Headphones",
     desc: "Wireless earbuds with active noise cancellation, a comfortable fit, and easy setup with Apple devices.",
-    image: pad,
+    image: headphone4,
     rating: 5,
   },
   {
@@ -142,7 +157,7 @@ export const productsList = [
     price: 169.99,
     category: "Headphones",
     desc: "Wireless earbuds with active noise cancellation, long battery life, and seamless integration with Samsung devices.",
-    image: pad,
+    image: headphone4,
     rating: 4,
   },
 ];

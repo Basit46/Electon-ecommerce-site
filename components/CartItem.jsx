@@ -25,7 +25,7 @@ const CartItem = ({ item }) => {
   return (
     <tr className="border-b-[1px] border-[#C3C3C3] py-[20px]">
       <td className="flex items-center gap-[10px] pl-[10px]">
-        <Image src={pad} width={136} height={119} alt="product_img" />
+        <Image src={item.image} width={70} height={70} alt="product_img" />
         <p className="font-semibold text-[20.68px] leading-[31px] text-[#003F62]">
           {item.title}
         </p>

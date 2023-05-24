@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import pad from "@/public/pad.png";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import add_to_cart from "@/public/add_to_cart_logo.png";
 import Link from "next/link";
@@ -13,10 +12,14 @@ const Product = ({ product }) => {
   const { addProductToFavourites } = useFavouriteContext();
 
   return (
-    <div className="relative w-[308.83px] h-[313.75px] p-[10px] rounded-[19.6707px] border-[0.983537px] border-solid border-[#B6B6B6] flex flex-col">
+    <div className="relative w-[308.83px] h-[313.75px] p-[10px] rounded-[19.6707px] border-[0.983537px] border-solid border-[#B6B6B6]">
       <Link href={`/category/${product?.id}`} passHref>
-        <div>
-          <Image src={pad} alt="Game pad" />
+        <div className="w-full h-[55%]">
+          <Image
+            className="h-full w-full object-contain"
+            src={product?.image}
+            alt="Game pad"
+          />
         </div>
         <div
           onClick={() => addProductToFavourites(product)}
@@ -41,7 +44,7 @@ const Product = ({ product }) => {
 
       <button
         onClick={() => handleAddToCart(product)}
-        className="self-end bg-[#87BCD9] rounded-[19.6707px] px-[10px] py-[10px] flex items-center gap-[39.84px]"
+        className="ml-auto mt-[8px] bg-[#87BCD9] rounded-[19.6707px] px-[10px] py-[10px] flex items-center gap-[39.84px]"
       >
         <p className="font-semibold text-[15.7366px] leading-6 text-[#272727]">
           Add to Cart
