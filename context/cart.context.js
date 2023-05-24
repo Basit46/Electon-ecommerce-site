@@ -14,6 +14,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "add":
       return [...state, action.payload];
+    case "remove":
+      return state.filter((product) => product.id !== action.payload.id);
     case "update":
       return state.map((product) => {
         if (product.id === action.payload.id) {

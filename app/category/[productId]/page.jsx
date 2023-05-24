@@ -4,18 +4,14 @@ import pad from "@/public/pad.png";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineCheck } from "react-icons/md";
 import Product from "@/components/Product";
+import { productsList } from "@/public/apitest";
 
 const getProduct = async (params) => {
-  const res = await fetch("http://localhost:3000/api/products", {
-    cache: "no-store",
-  });
-  const returnedData = await res.json();
-
-  const product = returnedData.find(
+  const product = await productsList.find(
     (product) => product.id.toString() === params.productId
   );
 
-  const relatedProducts = returnedData
+  const relatedProducts = productsList
     .filter((relatedproduct) => relatedproduct.category === product.category)
     .filter((item) => item.id !== product.id);
   return { relatedProducts, product };
@@ -23,22 +19,30 @@ const getProduct = async (params) => {
 const page = async ({ params }) => {
   const { relatedProducts, product } = await getProduct(params);
   return (
-    <div className="w-full px-[60px] pt-[22px]">
+    <div className="w-full px-[60px] py-[22px]">
       <div className="flex gap-[49px]">
         <div className="w-[500px]">
           <div className="w-full h-[400px] border rounded-[20px] border-solid border-[#ACACAC]">
             <Image
-              className="object-cover h-full w-full"
-              src={pad}
+              className="h-full w-full object-contain"
+              src={product?.image}
               alt="Big pad"
             />
           </div>
           <div className="mt-[25px] flex justify-between">
             <div className="w-[240px] h-[157px] border rounded-[20px] border-solid border-[#ACACAC]">
-              <Image src={pad} alt="pad" />
+              <Image
+                className="h-full w-full object-contain"
+                src={product?.image}
+                alt="pad"
+              />
             </div>
             <div className="w-[240px] h-[157px] border rounded-[20px] border-solid border-[#ACACAC]">
-              <Image src={pad} alt="pad" />
+              <Image
+                className="h-full w-full object-contain"
+                src={product?.image}
+                alt="pad"
+              />
             </div>
           </div>
         </div>
@@ -73,32 +77,14 @@ const page = async ({ params }) => {
           <p className="text-[15.9276px] leading-6 text-[#5D5D5D]">
             Hurry up! only few products left in stock!
           </p>
-          <div className="mt-[22px] mb-[40px] w-full h-0 border border-solid border-[#BDBDBD]" />
-          <div className="flex items-center gap-[19.08px]">
-            <p className="font-medium text-[18.1725px] leading-[27px] text-[#232323]">
-              Quantity:
-            </p>
-            <div className="bg-[#EEEEEE] py-[2.5px]">
-              <span className="px-[10px] cursor-pointer">-</span>
-              <input
-                type="number"
-                className="bg-transparent border-x-[1px] border-[#BDBDBD] outline-none px-[10px] w-[63px] font-medium text-[18.1725px] leading-[27px] text-[#434343]"
-              />
-              <span className="px-[10px] cursor-pointer">+</span>
-            </div>
-          </div>
-          <div className="mt-[42px] flex gap-[29px]">
+          <div className="flex gap-[29px] my-[20px] py-[20px] border-y-[2px] border-solid border-[#BDBDBD]">
             <button className="py-[19.5px] px-[56px] bg-gold rounded-[32.4242px] font-semibold text-[22.697px] leading-[34px] text-white">
               Add to cart
-            </button>
-            <button className="py-[19.5px] px-[56px] bg-gold rounded-[32.4242px] font-semibold text-[22.697px] leading-[34px] text-white">
-              Buy it now
             </button>
             <div className="bg-[#EEEEEE] w-[74px] h-[73px] rounded-full grid place-items-center">
               <AiOutlineHeart className="w-[30px] h-[26.7px]" />
             </div>
           </div>
-          <div className="mt-[22px] mb-[40px] w-full h-0 border border-solid border-[#BDBDBD]" />
           <div className="flex items-center gap-[28px]">
             <p className="font-medium text-[18.1725px] leading-[27px] text-[#232323]">
               Share:

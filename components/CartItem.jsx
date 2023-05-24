@@ -57,7 +57,10 @@ const CartItem = ({ item }) => {
       <td>$ {parseInt(item.amount)}</td>
 
       <td>
-        <MdOutlineCancel className="cursor-pointer text-[25px] active:text-[22px]" />
+        <MdOutlineCancel
+          onClick={() => dispatch({ type: "remove", payload: { id: item.id } })}
+          className="cursor-pointer text-[25px] active:text-[22px]"
+        />
       </td>
     </tr>
   );

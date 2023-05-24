@@ -21,12 +21,6 @@ const Product = ({ product }) => {
             alt="Game pad"
           />
         </div>
-        <div
-          onClick={() => addProductToFavourites(product)}
-          className="absolute top-[20px] right-[20px] w-[27.54px] h-[27.54px] bg-[#B3D4E5] grid place-items-center rounded-full cursor-pointer"
-        >
-          <AiOutlineHeart />
-        </div>
         <p className="font-medium text-[17.0939px] leading-[24px] text-[#003F62]">
           {product?.title}
         </p>
@@ -42,15 +36,24 @@ const Product = ({ product }) => {
         <AiFillStar className="text-[#ACACAC]" />
       </div>
 
-      <button
-        onClick={() => handleAddToCart(product)}
-        className="ml-auto mt-[8px] bg-[#87BCD9] rounded-[19.6707px] px-[10px] py-[10px] flex items-center gap-[39.84px]"
-      >
-        <p className="font-semibold text-[15.7366px] leading-6 text-[#272727]">
-          Add to Cart
-        </p>
-        <Image src={add_to_cart} alt="add_to_cart_logo" />
-      </button>
+      <div className="mt-[8px] flex justify-between items-center">
+        <button
+          onClick={() => handleAddToCart(product)}
+          className="bg-[#87BCD9] rounded-[19.6707px] px-[10px] py-[10px] flex items-center gap-[39.84px]"
+        >
+          <p className="font-semibold text-[15.7366px] leading-6 text-[#272727]">
+            Add to Cart
+          </p>
+          <Image src={add_to_cart} alt="add_to_cart_logo" />
+        </button>
+
+        <div
+          onClick={() => addProductToFavourites(product)}
+          className="w-[40px] h-[40px] bg-[#B3D4E5] grid place-items-center rounded-full cursor-pointer"
+        >
+          <AiOutlineHeart className="text-[22px]" />
+        </div>
+      </div>
     </div>
   );
 };

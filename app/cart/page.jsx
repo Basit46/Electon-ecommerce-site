@@ -74,7 +74,7 @@ const page = () => {
               Total amount
             </h1>
             <p className="text-[18.68px] leading-7 text-right text-[#232323]">
-              $23.20
+              ${subTotal}
             </p>
           </div>
           <button className="mt-[41px] w-full bg-gold rounded-[32.4242px] font-semibold text-[20.7px] leading-[31px] text-white py-[10.5px]">
