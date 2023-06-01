@@ -1,6 +1,6 @@
 "use client";
 
-import Product from "@/components/Product";
+import LikedProduct from "@/components/LikedProduct";
 import { useAuthContext } from "@/context/auth.context";
 import { useFavouriteContext } from "@/context/favourite.context";
 import React, { useEffect, useState } from "react";
@@ -16,13 +16,11 @@ const favourites = () => {
     setUserFavourites(filtered?.likedProducts);
   }, [likedProducts]);
 
-  console.log(userFavourites?.likedProducts);
-
   return (
     <div className="w-full px-[60px] pt-[30px] flex justify-center flex-wrap gap-[30px]">
       {userFavourites &&
         userFavourites.map((product, index) => (
-          <Product key={index} product={product.product} />
+          <LikedProduct key={index} product={product.product} />
         ))}
     </div>
   );

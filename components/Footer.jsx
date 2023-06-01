@@ -25,7 +25,13 @@ const Footer = () => {
         </div>
 
         <div className="flex gap-[23.75px] w-fit">
-          <Image className="mr-[22.12px]" src={call} alt="call_icon" />
+          <Image
+            className="mr-[22.12px]"
+            height={100}
+            width={100}
+            src={call}
+            alt="call_icon"
+          />
           <p className="font-semibold text-sm leading-[21px] text-[#606060]">
             Call us 24/7 : <br />
             (+62) 0123 567 789

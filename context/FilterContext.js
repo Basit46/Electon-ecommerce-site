@@ -1,7 +1,13 @@
 "use client";
 
 import { productsList } from "@/public/apitest";
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+} from "react";
 
 export const FilterContext = createContext();
 

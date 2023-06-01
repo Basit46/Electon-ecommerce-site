@@ -34,9 +34,16 @@ const FavouriteContextProvider = ({ children }) => {
       }),
     });
   };
+
+  const deleteProduct = (id) => {
+    const filtered = likedProducts.find((product) => product.id === user.email);
+    console.log(id);
+    console.log(filtered.likedProducts);
+    console.log(filtered.likedProducts.filter((item) => item.id !== id));
+  };
   return (
     <favouriteContext.Provider
-      value={{ likedProducts, addProductToFavourites }}
+      value={{ likedProducts, addProductToFavourites, deleteProduct }}
     >
       {children}
     </favouriteContext.Provider>
