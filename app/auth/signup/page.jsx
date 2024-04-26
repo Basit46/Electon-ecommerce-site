@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useCartContext } from "@/context/cart.context";
 import { useRouter } from "next/navigation";
 
-const signUp = () => {
+const SignUp = () => {
   const router = useRouter();
 
   const { handleSignUp } = useAuthContext();
@@ -63,4 +63,4 @@ const signUp = () => {
   );
 };
 
-export default signUp;
+export default SignUp;

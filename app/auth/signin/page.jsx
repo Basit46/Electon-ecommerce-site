@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const signIn = () => {
+const SignIn = () => {
   const router = useRouter();
 
   const { handleSignIn } = useAuthContext();
@@ -63,4 +63,4 @@ const signIn = () => {
   );
 };
 
-export default signIn;
+export default SignIn;
