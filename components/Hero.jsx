@@ -107,24 +107,24 @@ const Hero = () => {
           ref={scrollContRef}
           className="w-full overflow-x-hidden overflow-y-hidden scroll-smooth"
         >
-          <div
+          <button
             onClick={handleScrollLeft}
             className="w-[37px] h-[37px] absolute left-[90px] top-[50%] translate-y-[-50%] grid place-items-center rounded-full bg-gold"
           >
             <BsArrowLeft className="text-[#292D32]" />
-          </div>
+          </button>
           <div className="w-fit flex gap-[50px]">
             <ProductsCollection img={phone} title="Phones" items={4} />
             <ProductsCollection img={laptop} title="Laptops" items={3} />
             <ProductsCollection img={camera_sm} title="Cameras" items={4} />
             <ProductsCollection img={headphone} title="Headphones" items={5} />
           </div>
-          <div
+          <button
             onClick={handleScrollRight}
             className="w-[37px] h-[37px] absolute right-[90px] top-[50%] translate-y-[-50%] grid place-items-center rounded-full bg-gold"
           >
             <BsArrowRight className="text-[#292D32]" />
-          </div>
+          </button>
         </div>
       </div>
     </div>

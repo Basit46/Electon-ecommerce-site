@@ -102,13 +102,13 @@ const Navbar = () => {
         )}
 
         {user && (
-          <div
+          <button
             onClick={signUserOut}
             className="flex items-center gap-[3px] cursor-pointer hover:text-[orange]"
           >
             <CiLogout className="h-[24px] w-[24px]" />
             <p className="text-[14px] leading-[21px]">Sign Out</p>
-          </div>
+          </button>
         )}
       </div>
     </nav>

@@ -5,7 +5,7 @@ import { useCartContext } from "@/context/cart.context";
 import Link from "next/link";
 import React from "react";
 
-const page = () => {
+const Page = () => {
   const { cartItems, subTotal, clearCart } = useCartContext();
 
   return (
@@ -86,4 +86,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -47,12 +47,12 @@ const Product = ({ product }) => {
           <Image src={add_to_cart} alt="add_to_cart_logo" />
         </button>
 
-        <div
+        <button
           onClick={() => addProductToFavourites(product)}
           className="w-[40px] h-[40px] bg-[#B3D4E5] grid place-items-center rounded-full cursor-pointer"
         >
           <AiOutlineHeart className="text-[22px]" />
-        </div>
+        </button>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { useAuthContext } from "@/context/auth.context";
 import { useFavouriteContext } from "@/context/favourite.context";
 import React, { useEffect, useState } from "react";
 
-const favourites = () => {
+const Favourites = () => {
   const { likedProducts } = useFavouriteContext();
   const { user } = useAuthContext();
 
@@ -26,4 +26,4 @@ const favourites = () => {
   );
 };
 
-export default favourites;
+export default Favourites;

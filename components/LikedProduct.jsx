@@ -48,12 +48,12 @@ const LikedProduct = ({ product }) => {
           <Image src={add_to_cart} alt="add_to_cart_logo" />
         </button>
 
-        <div
+        <button
           onClick={() => deleteProduct(product.id)}
           className="w-[40px] h-[40px] bg-[#B3D4E5] grid place-items-center rounded-full cursor-pointer"
         >
           <FaTrash className="text-[22px] text-[red]" />
-        </div>
+        </button>
       </div>
     </div>
   );

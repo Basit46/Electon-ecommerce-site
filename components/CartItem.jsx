@@ -1,7 +1,6 @@
 "use client";
 
 import { useCartContext } from "@/context/cart.context";
-import pad from "@/public/pad.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { MdOutlineCancel } from "react-icons/md";
@@ -11,7 +10,7 @@ const CartItem = ({ item }) => {
 
   const [rate, setRate] = useState(item.rate);
   const handleChange = async (e) => {
-    await setRate(e.target.value);
+    setRate(e.target.value);
   };
 
   useEffect(() => {
@@ -33,24 +32,24 @@ const CartItem = ({ item }) => {
       <td>$ {item.price}</td>
       <td>
         <div className="bg-[#EEEEEE] w-fit py-[2.5px]">
-          <span
+          <button
             onClick={() => setRate((prev) => parseFloat(prev) - 1)}
             className="px-[10px] cursor-pointer"
           >
             -
-          </span>
+          </button>
           <input
             value={rate}
             onChange={(e) => handleChange(e)}
             type="number"
             className="bg-transparent text-center border-x-[1px] border-[#BDBDBD] outline-none px-[10px] w-[63px] font-medium text-[18.1725px] leading-[27px] text-[#434343]"
           />
-          <span
+          <button
             onClick={() => setRate((prev) => parseFloat(prev) + 1)}
             className="px-[10px] cursor-pointer"
           >
             +
-          </span>
+          </button>
         </div>
       </td>
 
